@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uke-3", "uke-3.csproj", "{AD472382-4772-AC3E-1D1C-EE42C1085610}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD472382-4772-AC3E-1D1C-EE42C1085610}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD472382-4772-AC3E-1D1C-EE42C1085610}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD472382-4772-AC3E-1D1C-EE42C1085610}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD472382-4772-AC3E-1D1C-EE42C1085610}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {340FE960-0BD1-4AC5-B038-612DAB7A647B}
+	EndGlobalSection
+EndGlobal
