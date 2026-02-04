@@ -39,26 +39,37 @@ public class Calculator
 
     public void RunCalculator()
     {
-        Console.WriteLine("Choose a numba: ");
-        string? inputA = Console.ReadLine();
-        double a = stringToDouble(inputA);
-
-        Console.WriteLine("Choose a second numba: ");
-        string? inputB = Console.ReadLine();
-        double b = stringToDouble(inputB);
-
-        string operation = Console.ReadLine();
-
-        try
-        {
-            double result = operation switch
+        while (true)
+        { 
+            try
             {
-                "+" => addNumbers(a, b),
-                "-" => subtractNumbers(a, b),
-                "*" => multiplyNumbers(a, b),
-                "/" => divideNumbers(a, b),
-                _ => throw new InvalidOperationException("Unknown operation selected")
-            };
+                
+                Console.WriteLine("\nChoose a numba: ");
+                string? inputA = Console.ReadLine();
+                double a = stringToDouble(inputA);
+
+                Console.WriteLine("Choose a second numba: ");
+                string? inputB = Console.ReadLine();
+                double b = stringToDouble(inputB);
+
+                Console.WriteLine("Choose an operation: +, -, *, /");
+                string operation = Console.ReadLine();
+
+                    double result = operation switch
+                {
+                    "+" => addNumbers(a, b),
+                    "-" => subtractNumbers(a, b),
+                    "*" => multiplyNumbers(a, b),
+                    "/" => divideNumbers(a, b),
+                    _ => throw new InvalidOperationException("Unknown operation selected")
+                };
+                Console.Write(result);
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("Unknown error");
+            }
         }
     }
 }
