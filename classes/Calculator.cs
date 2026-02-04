@@ -40,6 +40,8 @@ public class Calculator
 
     public void RunCalculator()
     {
+
+        double sum = 0;
         while (true)
         { 
             try
@@ -47,12 +49,19 @@ public class Calculator
                 var operation = AnsiConsole.Prompt(
                     new SelectionPrompt<string>()
                     .Title("Select operation")
-                    .AddChoices("+", "-", "*", "/", "Exit")
+                    .AddChoices("+", "-", "*", "/", "Clear", "Exit")
                 );
 
                 if (operation == "Exit")
                 {
                     return;
+                }
+
+                if (operation == "Clear")
+                {
+                    sum = 0;
+                    Console.WriteLine("Sum has been cleared!");
+                    continue;
                 }
                 
                 Console.WriteLine("Choose number 1: ");
@@ -68,7 +77,9 @@ public class Calculator
                     "/" => divideNumbers(a, b),
                     _ => throw new InvalidOperationException("Unknown operation selected")
                 };
-                Console.WriteLine($"Sum of your numbers: {result}\n");
+
+                sum += result;
+                Console.WriteLine($"Sum of your numbers: {sum} \n");
             }
 
             catch (Exception ex)
