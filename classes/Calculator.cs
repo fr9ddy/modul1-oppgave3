@@ -68,7 +68,7 @@ public class Calculator
                     "/" => divideNumbers(a, b),
                     _ => throw new InvalidOperationException("Unknown operation selected")
                 };
-                Console.WriteLine($"Sum of your numbers: {result}");
+                Console.WriteLine($"Sum of your numbers: {result}\n");
             }
 
             catch (Exception ex)
