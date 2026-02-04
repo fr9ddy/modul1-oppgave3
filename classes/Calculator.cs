@@ -21,10 +21,44 @@ public class Calculator
 
     public double divideNumbers(double a, double b)
     {
+        if (b == 0)
+        {
+            throw new DivideByZeroException("Cannot divide by 0");
+        }
         return a / b;
     }
-    public void operation()
+
+    static double stringToDouble(string str)
     {
-        
+        if (!double.TryParse(str, out double n))
+        {
+            throw new Exception("Failed to parse");
+        }
+        return n;
+    }
+
+    public void RunCalculator()
+    {
+        Console.WriteLine("Choose a numba: ");
+        string? inputA = Console.ReadLine();
+        double a = stringToDouble(inputA);
+
+        Console.WriteLine("Choose a second numba: ");
+        string? inputB = Console.ReadLine();
+        double b = stringToDouble(inputB);
+
+        string operation = Console.ReadLine();
+
+        try
+        {
+            double result = operation switch
+            {
+                "+" => addNumbers(a, b),
+                "-" => subtractNumbers(a, b),
+                "*" => multiplyNumbers(a, b),
+                "/" => divideNumbers(a, b),
+                _ => throw new InvalidOperationException("Unknown operation selected")
+            };
+        }
     }
 }
