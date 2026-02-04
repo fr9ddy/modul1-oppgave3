@@ -1,5 +1,6 @@
 
-
+using Spectre.Console;
+using System.ComponentModel.Design;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.VisualBasic;
 
@@ -43,19 +44,23 @@ public class Calculator
         { 
             try
             {
+                var operation = AnsiConsole.Prompt(
+                    new SelectionPrompt<string>()
+                    .Title("Select operation")
+                    .AddChoices("+", "-", "*", "/", "Exit")
+                );
+
+                if (operation == "Exit")
+                {
+                    return;
+                }
                 
-                Console.WriteLine("\nChoose a numba: ");
-                string? inputA = Console.ReadLine();
-                double a = stringToDouble(inputA);
+                Console.WriteLine("Choose number 1: ");
+                double a = stringToDouble(Console.ReadLine());
+                Console.WriteLine("Choose number 2: ");
+                double b = stringToDouble(Console.ReadLine());
 
-                Console.WriteLine("Choose a second numba: ");
-                string? inputB = Console.ReadLine();
-                double b = stringToDouble(inputB);
-
-                Console.WriteLine("Choose an operation: +, -, *, /");
-                string operation = Console.ReadLine();
-
-                    double result = operation switch
+                double result = operation switch
                 {
                     "+" => addNumbers(a, b),
                     "-" => subtractNumbers(a, b),
@@ -63,7 +68,7 @@ public class Calculator
                     "/" => divideNumbers(a, b),
                     _ => throw new InvalidOperationException("Unknown operation selected")
                 };
-                Console.Write(result);
+                Console.WriteLine($"Sum of your numbers: {result}");
             }
 
             catch (Exception ex)
