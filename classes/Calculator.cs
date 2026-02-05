@@ -6,25 +6,14 @@ using Microsoft.VisualBasic;
 
 public class Calculator
 {
-    public double addNumbers(double a, double b){
-        return a + b;
-    }
-
-    public double subtractNumbers(double a, double b)
-    {
-        return a - b;
-    }
-
-    public double multiplyNumbers(double a, double b)
-    {
-        return a * b;
-    }
-
-    public double divideNumbers(double a, double b)
+    public double AddNumbers(double a, double b) => a + b;
+    public double SubtractNumbers(double a, double b) => a - b;
+    public double MultiplyNumbers(double a, double b) => a * b;
+    public double DivideNumbers(double a, double b)
     {
         if (b == 0)
         {
-            throw new DivideByZeroException("Cannot divide by 0");
+            throw new DivideByZeroException("Error: Cannot divide by 0");
         }
         return a / b;
     }
@@ -33,7 +22,7 @@ public class Calculator
     {
         if (!double.TryParse(str, out double n))
         {
-            throw new Exception("Failed to parse");
+            throw new Exception("Error: Failed to parse string");
         }
         return n;
     }
@@ -65,16 +54,16 @@ public class Calculator
                 }
                 
                 Console.WriteLine("Choose number 1: ");
-                double a = stringToDouble(Console.ReadLine());
+                double a = stringToDouble(Console.ReadLine()!);
                 Console.WriteLine("Choose number 2: ");
-                double b = stringToDouble(Console.ReadLine());
+                double b = stringToDouble(Console.ReadLine()!);
 
                 double result = operation switch
                 {
-                    "+" => addNumbers(a, b),
-                    "-" => subtractNumbers(a, b),
-                    "*" => multiplyNumbers(a, b),
-                    "/" => divideNumbers(a, b),
+                    "+" => AddNumbers(a, b),
+                    "-" => SubtractNumbers(a, b),
+                    "*" => MultiplyNumbers(a, b),
+                    "/" => DivideNumbers(a, b),
                     _ => throw new InvalidOperationException("Unknown operation selected")
                 };
 
